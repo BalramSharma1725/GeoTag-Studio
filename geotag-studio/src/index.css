@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --accent-glow: rgba(110, 231, 183, 0.15); }
+
+* { box-sizing: border-box; }
+body { background: #0a0a0f; color: #e8e8f0; overflow: hidden; height: 100vh; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #383850; border-radius: 999px; }
+
+.leaflet-tile { filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7); }
+.leaflet-container { background: #0a0a0f !important; }
+
+@layer components {
+  .section-label {
+    @apply font-mono text-[10px] text-border2 uppercase tracking-widest mb-2 flex items-center gap-2;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #2a2a38; }
+
+  .input-field {
+    @apply w-full bg-surface2 border border-border text-text font-mono text-sm px-3 py-2 rounded-lg outline-none transition-all duration-150;
+  }
+  .input-field:focus { border-color: #6ee7b7; box-shadow: 0 0 0 2px rgba(110,231,183,0.1); }
+  .input-field.error { border-color: #f87171; }
+  .input-field::placeholder { color: #60607a; }
+
+  .btn { @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium cursor-pointer border transition-all duration-150; }
+  .btn-primary { @apply bg-accent text-bg border-accent; }
+  .btn-primary:hover { background: #a7f3d0; }
+  .btn-ghost { @apply bg-transparent text-muted border-border; }
+  .btn-ghost:hover { @apply bg-surface2 text-text border-border2; }
+  .btn-danger { @apply bg-transparent text-red-400 border-red-400/30; }
+  .btn-danger:hover { background: rgba(248,113,113,0.1); }
+  .btn:disabled { @apply opacity-40 cursor-not-allowed; }
+}
