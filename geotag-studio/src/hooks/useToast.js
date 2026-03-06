@@ -1,9 +1,9 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback } from 'react'
 
 export function useToast() {
   const [toasts, setToasts] = useState([])
 
-  const showToast = useCallback((message, type = "info", duration = 3000) => {
+  const showToast = useCallback((message, type = 'info', duration = 3500) => {
     const id = Date.now() + Math.random()
     setToasts((prev) => [...prev, { id, message, type }])
     setTimeout(() => {

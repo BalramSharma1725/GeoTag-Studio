@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -9,17 +10,17 @@ export default {
         mono: ['DM Mono', 'monospace'],
       },
       colors: {
-        bg: '#0a0a0f',
-        surface: '#111118',
-        surface2: '#18181f',
-        surface3: '#22222c',
-        border: '#2a2a38',
-        border2: '#383850',
-        accent: '#6ee7b7',
-        accent2: '#38bdf8',
-        accent3: '#f472b6',
-        muted: '#9898b0',
-        text: '#e8e8f0',
+        bg: 'var(--color-bg)',
+        surface: 'var(--color-surface)',
+        surface2: 'var(--color-surface2)',
+        surface3: 'var(--color-surface3)',
+        border: 'var(--color-border)',
+        border2: 'var(--color-border2)',
+        accent: 'var(--color-accent)',
+        accent2: 'var(--color-accent2)',
+        accent3: 'var(--color-accent3)',
+        muted: 'var(--color-muted)',
+        text: 'var(--color-text)',
       },
     },
   },
