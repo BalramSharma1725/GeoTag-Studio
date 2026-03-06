@@ -1,70 +1,128 @@
-# 🗺️ GeoTag Studio — Bulk GPS & Metadata Editor
+<div align="center">
 
-A production-ready web application for bulk editing GPS coordinates and EXIF metadata in images. **All processing happens locally in your browser** — no server required, no data uploads.
+# 🗺️ GeoTag Studio
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-purple?logo=vite)
+### The Open-Source GPS Metadata Editor That Respects Your Privacy
+
+**Read, write, and batch-edit EXIF geotags, keywords, descriptions, and ALT text — entirely in your browser.**
+
+Zero uploads. Zero tracking. Zero cost.
+
+[![Version](https://img.shields.io/badge/v2.0.0-stable-6ee7b7?style=for-the-badge)](https://github.com/BalramSharma1725/GeoTag-Studio)
+[![License](https://img.shields.io/badge/MIT-License-38bdf8?style=for-the-badge)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org)
+[![Vite](https://img.shields.io/badge/Vite-5-a855f7?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![PWA](https://img.shields.io/badge/PWA-Ready-f472b6?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+
+[**🚀 Launch App**](https://balramsharma1725.github.io/GeoTag-Studio/) · [**📄 Documentation**](#-how-to-use) · [**🐛 Report Bug**](https://github.com/BalramSharma1725/GeoTag-Studio/issues)
+
+</div>
+
+---
+
+## 🌍 The Problem
+
+Every day, millions of photographs are taken — by photographers, journalists, real estate agents, SEO professionals, drone operators, and researchers. But most of these images are missing one critical piece of information: **where they were taken.**
+
+Without GPS metadata, images are invisible to location-based search engines, useless for mapping applications, and lack the context needed for professional workflows. Existing solutions either:
+
+- 💰 **Cost $50–$300/year** in subscription fees
+- ☁️ **Upload your images to a server** — a privacy nightmare
+- 🖥️ **Require desktop software installation** — platform-locked
+- 😕 **Only handle one image at a time** — unscalable for real work
+
+**GeoTag Studio solves all of this.** It's free, private, browser-based, and built for batch processing.
+
+---
+
+## 💡 Who Is This For?
+
+| User | Pain Point | How GeoTag Studio Helps |
+|---|---|---|
+| **📸 Photographers** | Need GPS tags for photo libraries & stock submissions | Batch-tag hundreds of photos by clicking on a map |
+| **🏠 Real Estate Agents** | Property images need location data for MLS listings | Set GPS once, apply to all property photos instantly |
+| **📈 SEO Professionals** | Google uses EXIF geotags for local search ranking | Embed GPS, ALT text, keywords, and descriptions for Local SEO |
+| **📰 Journalists & Researchers** | Need to document where photos were taken | Add precise coordinates with full metadata audit trail |
+| **🛒 E-Commerce Sellers** | Product photos need rich metadata for marketplace search | Bulk-add keywords, descriptions, and ALT text |
+| **🛩️ Drone Operators** | Aerial images need GPS correlation with flight logs | Import coordinates from CSV/GPX files, batch-apply |
+| **🌐 Web Developers** | Images need ALT text for accessibility & SEO | Per-image ALT text editor with character counter |
 
 ---
 
 ## ✨ Features
 
-### 📸 Image Support
-- **Format Support**: JPG, JPEG, PNG, WEBP
-- **Drag & Drop Upload** — Multi-file upload interface
-- **Batch Processing** — Process multiple images at once
+### 📍 GPS Editing
+- **Interactive Map** — Click anywhere on the map to set coordinates (Leaflet + OpenStreetMap)
+- **Manual Coordinates** — Type exact latitude/longitude with real-time validation
+- **Place Search** — Search any address, city, or landmark by name (Nominatim API)
+- **Bulk Apply** — Set GPS for current image, selected images, or all images at once
+- **Undo / Reset** — Revert any change per individual image
+- **Before / After** — Side-by-side comparison of original vs. edited coordinates
 
-### 🗺️ GPS Editing
-- **EXIF GPS Reading** — Auto-detects existing GPS coordinates from images
-- **Manual Input** — Edit latitude/longitude with real-time validation
-- **Interactive Map Picker** — Click on map to select precise coordinates (Leaflet + OpenStreetMap)
-- **Default Coordinates** — Pre-configured default location (Siliguri, India: 26.716515°N, 88.421799°E)
-- **Validation** — Full coordinate range checking (-90 to 90 lat, -180 to 180 lng)
+### ✏️ Metadata Management
+- **Alt Text Editor** — Per-image alt text with character counter (warns at 100, caps at 250)
+- **Keywords & Tags** — Searchable tags written to XPKeywords + UserComment EXIF fields
+- **Image Description** — Embedded into EXIF ImageDescription field
+- **Timestamp Editing** — Modify DateTimeOriginal / DateTimeDigitized
+- **Bulk Metadata Editor** — Apply shared keywords/description + unique ALT text per image
 
-### 📝 Metadata Management
-- **Image Description** — Embed custom image descriptions
-- **Keywords** — Add searchable keywords/tags (XP Keywords + User Comment fields)
-- **Alt Text** — Add alternative text for accessibility
-- **Multi-Field Support** — Store metadata in multiple EXIF formats for maximum compatibility
-
-### 🎯 Editing Controls
-- **Bulk Apply** — Apply GPS/metadata to current/selected/all images
-- **Undo/Reset** — Revert changes per individual image
-- **Multi-select** — Checkbox selection with batch operations
-- **Before/After Comparison** — View original vs. edited EXIF data
+### 📄 CSV / GPX Import
+- **CSV Import** — Upload a spreadsheet with `filename, lat, lng, keywords, description, alt`
+- **GPX Import** — Import GPS tracks and waypoints from GPX files
+- **Smart Matching** — Automatic filename matching with sequential fallback
+- **Preview & Confirm** — Review all matches before applying
+- **Template Export** — Download a pre-filled CSV template from your current images
 
 ### 📦 Export & Download
-- **ZIP Export** — Download all edited images in a single ZIP file
-- **Selective Export** — Choose to download all images or edited-only
-- **Format Preservation** — Original image formats maintained (JPG→JPG, PNG→PNG, etc.)
+- **ZIP Archive** — Download all images as a single ZIP file
+- **Selective Export** — Choose to download all images or only edited ones
+- **Individual Download** — Download any single image with metadata embedded
+- **Format Handling** — JPEG files keep their format; PNG/WEBP converted to JPEG for GPS support
 
-### 🎨 User Interface
-- **Dark Mode UI** — Modern, easy-on-the-eyes design
-- **Responsive Layout** — Works on desktop and tablet
-- **Smooth Animations** — Framer Motion transitions and micro-interactions
-- **Real-time Progress** — Live progress indicator during batch processing
-- **Toast Notifications** — User feedback for all actions
+### 📸 Format Support
+- **JPEG / JPG** — Full EXIF read + write
+- **PNG / WEBP** — Auto-converted to JPEG for GPS embedding
+- **HEIC / HEIF** — iPhone photos automatically converted to JPEG (via heic2any)
 
-### 🔒 Privacy & Performance
-- **Browser-Based Processing** — No server uploads, all processing is client-side
-- **Fast Processing** — Optimized EXIF embedding with real-time validation
-- **No Data Tracking** — Completely private, no telemetry
+### 🌗 Themes & Accessibility
+- **Dark / Light / System** — Three theme modes with localStorage persistence
+- **WCAG 2.1 AA** — ARIA labels, keyboard navigation, focus management, screen reader support
+- **Mobile Responsive** — Hamburger menu, touch-friendly controls, collapsible panels
+
+### ⚡ Performance & Privacy
+- **100% Client-Side** — Every operation runs in your browser. No server. No uploads. No tracking.
+- **Offline Support** — Installable as a PWA. Map tiles cached for offline use via Service Worker.
+- **Code Splitting** — ~138 KB gzipped initial load (lazy-loaded components for maps and HEIC)
+- **Batch Processing** — Handle hundreds of images with real-time progress tracking
+
+---
+
+## 🔒 Privacy — Our Core Principle
+
+> **Your images never leave your device.**
+
+Unlike cloud-based tools that upload your photos to third-party servers, GeoTag Studio processes everything locally using browser APIs. Your images, GPS coordinates, keywords, descriptions, and ALT text — all of it stays on **your machine**.
+
+- ❌ No server uploads
+- ❌ No cookies or tracking
+- ❌ No analytics or telemetry
+- ❌ No account required
+- ✅ Works fully offline as a PWA
+- ✅ Open source — audit the code yourself
 
 ---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 16+ 
-- npm or yarn
+- **Node.js** 16+ and **npm** 8+
 
 ### Installation
 
 ```bash
-# Navigate to project directory
-cd geotag-studio
+# Clone the repository
+git clone https://github.com/BalramSharma1725/GeoTag-Studio.git
+cd GeoTag-Studio/geotag-studio
 
 # Install dependencies
 npm install
@@ -73,52 +131,93 @@ npm install
 npm run dev
 ```
 
-Then open your browser to: **http://localhost:5173**
+Open **http://localhost:5173/GeoTag-Studio/** in your browser.
 
 ### Production Build
 
 ```bash
-# Create optimized build
+# Create optimized production build
 npm run build
 
-# Preview production build locally
+# Preview the production build locally
 npm run preview
 ```
 
-Compiled files will be in the `dist/` directory.
+---
+
+## 🎯 How to Use
+
+### Step 1 — Upload Images
+Drag and drop your photos into the upload zone, or click **Choose Files** to browse. Supported formats: `JPG`, `PNG`, `WEBP`, `HEIC`.
+
+### Step 2 — Set GPS Coordinates
+Select an image from the grid, then:
+- **Click the map** to pin a location
+- **Type coordinates** manually (e.g., `40.7128, -74.006`)
+- **Search a place** by name (e.g., "Times Square, New York")
+
+Choose to apply GPS to the **current image**, **selected images**, or **all images**.
+
+### Step 3 — Add Metadata
+For each image, you can add:
+- **Alt Text** — Accessibility and SEO (per-image, with character counter)
+- **Keywords** — Comma-separated tags for search engines
+- **Description** — Full image caption/description
+- **Timestamp** — Override the photo's date/time
+
+Use **Bulk Metadata Editor** to set shared keywords + unique ALT text across all images at once.
+
+### Step 4 — Import from CSV (Optional)
+Click **Import CSV/GPX** in the sidebar. Upload a CSV file with columns:
+```
+filename, lat, lng, keywords, description, alt
+```
+Download a pre-filled template, edit it in Excel/Google Sheets, and re-import.
+
+### Step 5 — Export
+Go to **Export** view. Download individual images or a **ZIP archive** with all metadata embedded in EXIF.
+
+### Step 6 — Verify
+Confirm your metadata was written correctly:
+```bash
+exiftool downloaded-image.jpg | grep -i "gps\|keyword\|description\|comment"
+```
+
+---
+
+## 📊 EXIF Field Mapping
+
+GeoTag Studio writes metadata to multiple EXIF fields for maximum compatibility across platforms:
+
+| Data | EXIF Tag | Tag ID | Encoding | Compatible With |
+|---|---|---|---|---|
+| Alt Text | ImageDescription | 270 | ASCII | All EXIF readers |
+| Alt Text | XPComment | 40092 | UTF-16LE | Windows, Adobe, Google |
+| Keywords | XPKeywords | 40094 | UTF-16LE | Windows, Adobe, Google |
+| Keywords | UserComment | 37510 | UNICODE | All EXIF readers |
+| Description | ImageDescription | 270 | ASCII | All EXIF readers |
+| GPS Latitude | GPSLatitude | — | DMS Rational | All GPS-aware tools |
+| GPS Longitude | GPSLongitude | — | DMS Rational | All GPS-aware tools |
+| Timestamp | DateTimeOriginal | 36867 | ASCII | All EXIF readers |
 
 ---
 
 ## 🧩 Tech Stack
 
-### Frontend Framework
-- **React 18** — UI library with hooks
-- **Vite 5** — Lightning-fast bundler and dev server
-- **Node.js** — JavaScript runtime
-
-### Styling & Animation
-- **Tailwind CSS** — Utility-first CSS framework
-- **PostCSS** — CSS transformation
-- **Framer Motion** — Advanced animations and transitions
-
-### State Management
-- **Zustand** — Lightweight state management (images, selections, GPS data)
-
-### Map & Location
-- **Leaflet** — Interactive map library
-- **React-Leaflet** — React bindings for Leaflet
-- **OpenStreetMap** — Free map tiles provider
-
-### EXIF & Image Processing
-- **piexifjs** — JavaScript EXIF reader/writer
-  - Reads existing GPS/metadata from images
-  - Writes new GPS coordinates to EXIF
-  - Embeds metadata fields (ImageDescription, XPKeywords, XPComment, UserComment)
-  - UTF-16LE encoding support for Windows EXIF fields
-
-### File Operations
-- **JSZip** — Create ZIP files in browser
-- **React-Dropzone** — Drag-and-drop file upload
+| Layer | Technology | Purpose |
+|---|---|---|
+| **UI Framework** | React 18 | Component-based UI with hooks |
+| **Bundler** | Vite 5 | Lightning-fast dev server and builds |
+| **Styling** | Tailwind CSS 3 | Utility-first CSS with custom theme |
+| **Animations** | Framer Motion 11 | Smooth transitions and micro-interactions |
+| **State** | Zustand 4 | Lightweight global state management |
+| **Maps** | Leaflet + React-Leaflet | Interactive map with OpenStreetMap tiles |
+| **EXIF** | piexifjs | Read/write GPS, keywords, descriptions |
+| **ZIP** | JSZip | Client-side ZIP archive creation |
+| **Upload** | React-Dropzone | Drag-and-drop file handling |
+| **HEIC** | heic2any | iPhone HEIC → JPEG conversion |
+| **PWA** | vite-plugin-pwa | Offline support, installable app |
+| **Deploy** | GitHub Pages + Actions | CI/CD auto-deploy on push |
 
 ---
 
@@ -127,242 +226,164 @@ Compiled files will be in the `dist/` directory.
 ```
 geotag-studio/
 ├── src/
-│   ├── App.jsx                    # Main app component
-│   ├── main.jsx                   # Entry point
-│   ├── index.css                  # Global styles
-│   │
-│   ├── components/                # Reusable UI components
-│   │   ├── Sidebar.jsx           # Navigation sidebar
-│   │   ├── Toast.jsx             # Toast notifications
-│   │   ├── MetadataEditorPanel.jsx
-│   │   └── ProgressModal.jsx      # Batch processing progress
-│   │
-│   ├── features/                  # Feature-specific components
-│   │   ├── uploader/
-│   │   │   └── Uploader.jsx      # File upload interface
-│   │   ├── metadata-editor/
-│   │   │   ├── ImageGrid.jsx     # Image gallery/grid view
-│   │   │   └── MetadataEditorPanel.jsx  # Edit GPS & metadata
-│   │   ├── map-picker/
-│   │   │   └── MapPicker.jsx     # Interactive map selector
-│   │   └── export/
-│   │       └── ExportView.jsx    # ZIP export download
-│   │
-│   ├── hooks/                     # Custom React hooks
-│   │   ├── useImageLoader.js     # File upload handler
-│   │   ├── useProcessor.js       # Batch EXIF processing
-│   │   └── useToast.js           # Toast notifications
-│   │
-│   ├── utils/                     # Utility functions
-│   │   └── exif.js               # EXIF reading/writing logic
-│   │                              # GPS coordinate conversion (DMS ↔ decimal)
-│   │                              # Metadata encoding/decoding
+│   ├── App.jsx                              # Root layout, routing, modals
+│   ├── main.jsx                             # Entry point
+│   ├── index.css                            # Design system (dark/light themes)
 │   │
 │   ├── context/
-│   │   └── store.js              # Zustand state store
-│   │                              # Image state, selections, GPS data
+│   │   └── store.js                         # Zustand store (images, GPS, metadata)
+│   │
+│   ├── utils/
+│   │   └── exif.js                          # EXIF read/write, GPS conversion, UTF-16LE encoding
+│   │
+│   ├── hooks/
+│   │   ├── useImageLoader.js                # File upload + EXIF extraction
+│   │   ├── useProcessor.js                  # Batch EXIF embedding with progress
+│   │   └── useToast.js                      # Toast notification state
+│   │
+│   ├── components/
+│   │   ├── AltTextPanel.jsx                 # Per-image alt text editor (priority feature)
+│   │   ├── BulkMetadataEditor.jsx           # Batch metadata modal
+│   │   ├── CsvImporter.jsx                  # CSV/GPX import modal
+│   │   ├── HelpModal.jsx                    # In-app documentation
+│   │   ├── ProgressModal.jsx                # Processing progress dialog
+│   │   ├── Sidebar.jsx                      # Navigation + stats
+│   │   ├── ThemeToggle.jsx                  # Dark / Light / System toggle
+│   │   └── Toast.jsx                        # Toast container
+│   │
+│   ├── features/
+│   │   ├── uploader/Uploader.jsx            # Drag & drop upload zone
+│   │   ├── metadata-editor/
+│   │   │   ├── ImageGrid.jsx                # Image gallery with selection
+│   │   │   └── MetadataEditorPanel.jsx      # GPS + metadata editor panel
+│   │   ├── map-picker/MapPicker.jsx         # Full-screen map picker modal
+│   │   └── export/ExportView.jsx            # Export & download view
 │   │
 │   └── animations/
-│       └── variants.js            # Framer Motion animation definitions
+│       └── variants.js                      # Framer Motion animation presets
 │
-├── public/                        # Static assets
-├── dist/                          # Production build output
-├── index.html                     # HTML entry point
-├── vite.config.js                 # Vite configuration
-├── tailwind.config.js             # Tailwind CSS config
-├── postcss.config.js              # PostCSS config
-├── package.json                   # Dependencies & scripts
-└── README.md                      # This file
+├── .github/workflows/deploy.yml             # GitHub Actions auto-deploy
+├── index.html                               # HTML entry with SEO meta tags
+├── vite.config.js                           # Vite + PWA + GitHub Pages config
+├── tailwind.config.js                       # Tailwind with CSS variable theming
+├── postcss.config.js                        # PostCSS config
+└── package.json                             # Dependencies & scripts
 ```
 
 ---
 
-## 🎯 How to Use
+## 🌐 Deploying to GitHub Pages
 
-### 1. **Upload Images**
-   - Drag and drop images onto the upload area, or
-   - Click to browse and select files
-   - Supported formats: JPG, JPEG, PNG, WEBP
+GeoTag Studio is pre-configured for GitHub Pages deployment. Here's how to make it live:
 
-### 2. **View Image Details**
-   - Images appear in a grid
-   - Click any image to see existing EXIF/GPS data
-   - Use the sidebar to navigate between views
+### Option A — Automatic (GitHub Actions)
 
-### 3. **Edit GPS Coordinates**
-   - **Manual Input**: Enter latitude and longitude directly
-   - **Map Picker**: Click the map to select coordinates interactively
-   - **Default Location**: Pre-set to Siliguri (26.716515°N, 88.421799°E)
+The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that auto-deploys on every push to `main`.
 
-### 4. **Add Metadata**
-   - **Description**: Full image description
-   - **Keywords**: Searchable tags/keywords
-   - **Alt Text**: Accessibility text
+1. Go to your repo → **Settings** → **Pages**
+2. Under **Source**, select **Deploy from a branch**
+3. Set branch to `gh-pages` and folder to `/ (root)`
+4. Click **Save**
+5. Every push to `main` will automatically build and deploy
 
-### 5. **Apply & Process**
-   - Click "Apply GPS" to embed coordinates
-   - Select "Current Image" / "Selected" / "All Images"
-   - Processing happens in real-time with progress indicator
+Your site will be live at: **https://balramsharma1725.github.io/GeoTag-Studio/**
 
-### 6. **Download**
-   - Go to Export view
-   - Choose to download "All Images" or "Edited Only"
-   - Images download as a ZIP file
-   - Original formats preserved
-
-### 7. **Verify**
-   - Use exiftool to verify EXIF data:
-   ```bash
-   exiftool downloaded-image.jpg | grep -i "gps\|keyword\|description"
-   ```
-
----
-
-## 🔧 Configuration
-
-### Default Coordinates
-Edit the default location in:
-- `src/features/metadata-editor/MetadataEditorPanel.jsx` (React app)
-- `gps-metadata-editor.html` (Standalone HTML version)
-
-Change these values:
-```javascript
-const DEFAULT_LAT = 26.716515
-const DEFAULT_LNG = 88.421799
-const DEFAULT_ZOOM = 12
-```
-
-### Map Settings
-Leaflet/OpenStreetMap configuration in `MapPicker.jsx`:
-```javascript
-const MAP_CENTER = [26.716515, 88.421799]
-const MAP_ZOOM = 12
-```
-
----
-
-## 📊 EXIF Field Mapping
-
-The tool embeds metadata in the following EXIF fields for maximum compatibility:
-
-| Data Field | EXIF Tag | Tag ID | Format | Standard |
-|----------|----------|--------|--------|----------|
-| Description | ImageDescription | 270 | ASCII | Standard EXIF |
-| Keywords | XPKeywords | 40094 | UTF-16LE | Windows EXIF |
-| Keywords | UserComment | 37510 | ASCII | Standard EXIF |
-| Alt Text | XPComment | 40092 | UTF-16LE | Windows EXIF |
-| GPS Latitude | GPSLatitude | - | DMS | GPS IFD |
-| GPS Longitude | GPSLongitude | - | DMS | GPS IFD |
-
-**Note**: Keywords are stored in TWO places (40094 + 37510) for maximum compatibility with different EXIF readers.
-
----
-
-## 🛠️ Development
-
-### Available Scripts
+### Option B — Manual Deploy
 
 ```bash
-# Development server with hot reload
-npm run dev
+cd geotag-studio
 
-# Production build (optimized)
+# Build the production bundle
 npm run build
 
-# Preview production build
-npm run preview
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-### Debugging
-
-Console logging is built into the EXIF functions. Open browser DevTools (F12) to see:
-- EXIF embedding confirmation
-- GPS coordinate conversion logs
-- Metadata encoding/decoding details
-- Processing progress updates
-
-### Adding New Features
-
-1. **New Components**: Add to `src/features/` or `src/components/`
-2. **State Management**: Update `src/context/store.js` (Zustand)
-3. **EXIF Operations**: Add utility functions to `src/utils/exif.js`
-4. **Custom Hooks**: Create new files in `src/hooks/`
+This uses the `gh-pages` package to push the `dist/` folder to the `gh-pages` branch.
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Images Not Processing
-- Check browser console (F12) for error messages
-- Ensure image format is supported (JPG, PNG, WEBP)
-- Verify coordinates are valid (-90 to 90 lat, -180 to 180 lng)
+<details>
+<summary><strong>Images not processing?</strong></summary>
 
-### EXIF Data Not Embedding
-- Console should show "piexif.dump succeeded" and "piexif.insert succeeded"
-- If encoding error appears, special characters are being converted to `?`
-- Verify with: `exiftool image.jpg | grep -i "gps\|keyword"`
+- Open browser DevTools (F12) and check for console errors
+- Ensure file format is supported (JPG, PNG, WEBP, HEIC)
+- Verify coordinates are valid: Latitude (-90 to 90), Longitude (-180 to 180)
+- Non-JPEG files are converted to JPEG for GPS embedding
+</details>
 
-### Download Not Working
-- Check browser's automatic download settings
-- Ensure pop-ups are not blocked
-- Try a different browser (Chrome recommended)
+<details>
+<summary><strong>Map not loading?</strong></summary>
 
-### Map Not Loading
-- Verify internet connection (OpenStreetMap tiles require online)
-- Check browser console for CORS errors
-- Try refreshing the page
+- Map tiles require an internet connection (first load)
+- After first visit, tiles are cached offline via Service Worker
+- Try clearing browser cache and refreshing
+</details>
+
+<details>
+<summary><strong>HEIC files not converting?</strong></summary>
+
+- HEIC conversion requires the `heic2any` library (included)
+- Very large HEIC files may take a few seconds to convert
+- If conversion fails, the file is skipped with a warning toast
+</details>
+
+<details>
+<summary><strong>Download not working?</strong></summary>
+
+- Check that pop-ups are not blocked by your browser
+- Try downloading individual files instead of ZIP
+- Ensure sufficient disk space for the ZIP archive
+</details>
+
+---
+
+## 📈 Impact & Real-World Applications
+
+### 🔍 Local SEO Boost
+Google's search algorithm uses EXIF geotags to rank images in local search results. A restaurant that geotags its food photos with its business address will rank higher in "restaurants near me" image searches. **GeoTag Studio makes this possible for anyone — for free.**
+
+### ♿ Web Accessibility
+The Web Content Accessibility Guidelines (WCAG) require all images to have meaningful ALT text. GeoTag Studio's per-image ALT text editor with character counter and bulk-fill makes it easy to add accessibility metadata to hundreds of images at once — then export them with the ALT text embedded in EXIF.
+
+### 📰 Photojournalism & Research
+Geotagged photographs serve as evidence of location and time. Researchers, journalists, and NGOs can use GeoTag Studio to document where and when photos were taken, creating a verifiable metadata trail — all without trusting a third-party cloud service.
+
+### 🏢 Enterprise & Team Workflows
+With CSV import, teams can prepare metadata in a spreadsheet and batch-apply it to thousands of images. This is invaluable for:
+- Real estate listings requiring GPS-tagged property photos
+- E-commerce product catalogs needing consistent metadata
+- Media archives that need retroactive geotagging
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how to get started:
+
+1. **Fork** the repository
+2. **Create a feature branch**: `git checkout -b feature/my-feature`
+3. **Commit your changes**: `git commit -m "Add my feature"`
+4. **Push to your fork**: `git push origin feature/my-feature`
+5. **Open a Pull Request**
 
 ---
 
 ## 📝 License
 
-MIT License - Free to use, modify, and distribute.
+This project is licensed under the **MIT License** — free to use, modify, and distribute.
 
 ---
 
-## 👨‍💻 Development Notes
+<div align="center">
 
-### Key Technologies & Why
+### Built with ❤️ by [Balram Sharma](https://github.com/BalramSharma1725)
 
-- **React 18**: Modern UI with hooks, great for dynamic image editing
-- **Vite**: Fast bundling, excellent dev experience
-- **Zustand**: Simple state management without boilerplate
-- **piexifjs**: Pure JavaScript EXIF handling (no server required)
-- **Leaflet**: Lightweight map library for coordinate picking
-- **Tailwind CSS**: Rapid UI development with consistent styling
-- **Framer Motion**: Smooth animations for better UX
+**[⭐ Star this repo](https://github.com/BalramSharma1725/GeoTag-Studio)** if you find it useful!
 
-### Performance Considerations
+**Happy Geotagging! 📸🗺️**
 
-- Images are processed in-memory (no disk writes on client)
-- ZIP creation is streamed (efficient memory usage)
-- Vite builds with tree-shaking and minification
-- Tailwind CSS is purged to production-only classes
-
-### Browser Compatibility
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Requires JavaScript enabled
-- LocalStorage for state persistence (optional)
-
----
-
-## 🚀 Future Enhancements
-
-Potential features for future versions:
-
-- [ ] Batch metadata templates
-- [ ] GPS history/recent locations
-- [ ] Image rotation/transformation before export
-- [ ] Watermarking options
-- [ ] Batch search-and-replace for metadata
-- [ ] Coordinate import from CSV
-- [ ] Dark mode toggle (currently dark-only)
-- [ ] Mobile app version (React Native)
-- [ ] Desktop app (Electron)
-
----
-
-**Happy geotagging! 📸🗺️**
+</div>
